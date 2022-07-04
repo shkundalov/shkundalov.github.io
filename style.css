@@ -28,13 +28,14 @@ body{
 }
 .navbar-brand{
     font-weight: 600;
+    margin-right: 5px;
 }
 @media only screen and (min-width: 472px) {
     .navbar-brand{
         margin-left: 37px;
     }
     #alt+label{
-        display: unset;
+        display: unset !important;
     }
 }
 .navbar-toggler{
