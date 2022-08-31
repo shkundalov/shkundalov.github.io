@@ -177,7 +177,7 @@ h1{
 }
 
 /*h1::before,h1::after{
-    content: ' ';
+    content: ' ';
     position: absolute;
     left: 0;
     background-color: inherit;
@@ -302,11 +302,12 @@ input[name="window"]:checked+.container>label[for="window"]:hover{
 input[name="window"]:checked+.container .text-justify label{
     cursor: pointer;
 }
-input[name="window"]:checked+.container .text-justify label::after{
-    content: '';
-    display: block;
-    border-bottom: 1px dashed var(--bs-link-color);
-    margin-top: -2px;
+input[name="window"]:checked+.container .text-justify label:not(:last-of-type){
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-decoration-color: currentcolor;
+    text-decoration-thickness: auto;
+    display: unset;
 }
 .learnMore{
     background-color: var(--bs-link-color);
