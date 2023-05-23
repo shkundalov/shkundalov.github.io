@@ -12,6 +12,9 @@ body{
     width: 100%;
     flex-direction: column;
 }
+a,p,h1,h2,div{
+    color: #202020;
+}
 .navbar{
     position: sticky;
     top: 0;
