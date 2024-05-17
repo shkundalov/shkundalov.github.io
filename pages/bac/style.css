@@ -234,6 +234,8 @@ html,body{
   border-radius: 7px;
   margin-left: 12px;
   margin-top: 10px;
+  bottom: 5px;
+  right: 5px;
 }
 #seq{
   position: fixed;
