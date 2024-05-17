@@ -379,6 +379,7 @@ function keyLog(init = false) {
             case 'ArrowUp': inc(true); return;
             case 'ArrowDown': inc(false); return;
             case 'F5': window.location.reload(); return;
+            case 'F12': alert('Answer is:'+task.secret.join(',')); return;
         }
         var numb = Number(event.key);
         if (isNaN(numb)) { return }
