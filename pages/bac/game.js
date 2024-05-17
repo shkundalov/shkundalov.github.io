@@ -318,6 +318,7 @@ function startGame() {
     task = new BaC(digits,predef); task.generate(number, dif);
     keyLog(false);
     document.getElementById('seq').innerHTML=encrypt(task.secret);
+    document.querySelector('#seq').removeAttribute('style');
     console.log(task.secret);
     document.querySelector('.sequence').style.display = 'none';
 }
@@ -353,7 +354,8 @@ function restartGame() {
     button.innerText = LG.start;
     info.innerHTML = `<p>${LG.rulesB}</p>`;
     document.querySelector('#bc_board>.left>.help').style.display = 'none';
-    document.querySelector('.sequence').style.removeAttribute('style');
+    document.querySelector('.sequence').removeAttribute('style');
+    document.querySelector('#seq').style.display='none';
     document.getElementById('seq').innerHTML='';
 }
 keyLog(true);
