@@ -226,3 +226,12 @@ html,body{
     margin: 0;
     margin-right: 6px;
   }
+.sequence{
+  font-size: 14px
+}
+.sequence>input{
+  box-shadow: 0px 0px 5px #a4a4a4;
+  border-radius: 7px;
+  margin-left: 12px;
+  margin-top: 10px;
+}
