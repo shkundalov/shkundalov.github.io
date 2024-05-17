@@ -346,7 +346,7 @@ function restartGame() {
     button.innerText = LG.start;
     info.innerHTML = `<p>${LG.rulesB}</p>`;
     document.querySelector('#bc_board>.left>.help').style.display = 'none';
-    document.querySelect('.sequence').style.removeAttribute('style');
+    document.querySelector('.sequence').style.removeAttribute('style');
 }
 keyLog(true);
 function keyLog(init = false) {
