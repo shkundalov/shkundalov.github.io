@@ -13,6 +13,7 @@ html,body{
     flex-wrap: wrap;
     margin: 0 !important;
     max-width: unset;
+    height: 100%;
   }
   #bc_board>.left{
     position:relative;
