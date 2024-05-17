@@ -14,6 +14,7 @@ html,body{
     margin: 0 !important;
     max-width: unset;
     height: 100%;
+    align-items: center;
   }
   #bc_board>.left{
     position:relative;
