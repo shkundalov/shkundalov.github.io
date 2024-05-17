@@ -20,7 +20,7 @@ class BaC {
     }
     generate(number, dif = '1') {
         if(this.predef){
-            this.set(decrypt(this.predef).split(','));
+            this.set(predef);
             return;
         }
         this.difficulty = dif;
@@ -314,7 +314,7 @@ function startGame() {
     document.querySelector('#bc_board>.left>.help').style.display = dif == '0' ? 'unset' : 'none';
     digits = new Digits(number, dif);
     var predef = document.querySelector('.sequence>input').value;
-    predef = predef?decrypt(predef):false;
+    predef = predef?decrypt(predef).split(','):false;
     task = new BaC(digits,predef); task.generate(number, dif);
     keyLog(false);
     document.getElementById('seq').innerHTML=encrypt(task.secret.join(','));
