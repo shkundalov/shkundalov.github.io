@@ -235,3 +235,8 @@ html,body{
   margin-left: 12px;
   margin-top: 10px;
 }
+#seq{
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
