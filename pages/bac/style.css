@@ -188,6 +188,9 @@ html,body{
     color: inherit;
     display: flex;
   }
+  .right>.content>div>span>a:last-of-type{
+    margin-right: 0;
+  }
   .right>.content>div a>span{
       width: 20px;
       display: block;
