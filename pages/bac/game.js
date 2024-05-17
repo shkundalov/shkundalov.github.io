@@ -1,8 +1,9 @@
 /* File 1 */
 /* GAME */
 class BaC {
-    constructor(digits = null) {
+    constructor(digits = null,predef) {
         this.digits = digits;
+        this.predef = predef;
     }
     lang = [
         '',
@@ -18,6 +19,10 @@ class BaC {
         this.length = secret.length;
     }
     generate(number, dif = '1') {
+        if(this.predef){
+            this.set(decript(this.predef).split(','));
+            return;
+        }
         this.difficulty = dif;
         var row = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]][Number(dif)]
         function gn(int = 0) {
@@ -308,9 +313,11 @@ function startGame() {
     var dif = document.querySelector('#difficulty').value;
     document.querySelector('#bc_board>.left>.help').style.display = dif == '0' ? 'unset' : 'none';
     digits = new Digits(number, dif);
-    task = new BaC(digits); task.generate(number, dif);
+    var predef = document.querySelector('.sequence>input').value;
+    predef = predef?decrypt(predef):false;
+    task = new BaC(digits,predef); task.generate(number, dif);
     keyLog(false);
-    document.getElementById('seq').innerHTML='1234';
+    document.getElementById('seq').innerHTML=encrypt(task.secret);
     console.log(task.secret);
     document.querySelector('.sequence').style.display = 'none';
 }
@@ -347,6 +354,7 @@ function restartGame() {
     info.innerHTML = `<p>${LG.rulesB}</p>`;
     document.querySelector('#bc_board>.left>.help').style.display = 'none';
     document.querySelector('.sequence').style.removeAttribute('style');
+    document.getElementById('seq').innerHTML='';
 }
 keyLog(true);
 function keyLog(init = false) {
@@ -407,6 +415,19 @@ function translateHTML() {
         var text = LG[el.getAttribute('LG')] || 'UNKNOWN';
         el.innerText = text;
     })
+}
+function encrypt(text, key){
+    return [...text].map((x, i) => 
+    (x.codePointAt() ^ key.charCodeAt(i % key.length) % 255)
+     .toString(16)
+     .padStart(2,"0")
+   ).join('')
+}
+function decrypt(text, key){
+    return String.fromCharCode(...text.match(/.{1,2}/g)
+     .map((e,i) => 
+       parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
+     )
 }
 
 /* File 4 */
