@@ -384,14 +384,12 @@ function keyLog(init = false) {
         }
     }
     function key(event) {
-        event.preventDefault();
-        event.stopPropagation();
         switch (event.key) {
             case 'Space': case 'Enter': action(null, button); return;
-            case 'ArrowLeft': move(false); return;
-            case 'ArrowRight': move(true); return;
-            case 'ArrowUp': inc(true); return;
-            case 'ArrowDown': inc(false); return;
+            case 'ArrowLeft':event.preventDefault();event.stopPropagation();move(false); return;
+            case 'ArrowRight':event.preventDefault();event.stopPropagation();move(true); return;
+            case 'ArrowUp': event.preventDefault();event.stopPropagation();inc(true); return;
+            case 'ArrowDown': event.preventDefault();event.stopPropagation();inc(false); return;
             case 'F5': window.location.reload(); return;
             case 'F12': alert('Answer is:'+task.secret.join(',')); return;
         }
