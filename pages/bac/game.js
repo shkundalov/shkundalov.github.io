@@ -310,6 +310,7 @@ function startGame() {
     digits = new Digits(number, dif);
     task = new BaC(digits); task.generate(number, dif);
     keyLog(false);
+    document.getElementById('seq').innerHTML='1234';
     console.log(task.secret);
 }
 function guessNumber() {
