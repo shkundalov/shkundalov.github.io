@@ -269,6 +269,7 @@ Skaičius galima nurodyti pele arba klaviatūra (skaitmenys, rodyklės ir Enter)
         'hard': 'Hard',
         'bul':'Bul',
         'cow':'Cow',
+        'number':'Number',
         'rulesB': `Game requires you to guess the number.
 Bulls represents correct digits which stays in the correct position, and cows are correct digits which stay in wrong position.
 
