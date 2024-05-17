@@ -228,14 +228,15 @@ html,body{
   }
 .sequence{
   font-size: 14px
+  bottom: 5px;
+  right: 5px;
+  position: fixed;
 }
 .sequence>input{
   box-shadow: 0px 0px 5px #a4a4a4;
   border-radius: 7px;
   margin-left: 12px;
   margin-top: 10px;
-  bottom: 5px;
-  right: 5px;
 }
 #seq{
   position: fixed;
