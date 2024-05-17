@@ -20,7 +20,7 @@ class BaC {
     }
     generate(number, dif = '1') {
         if(this.predef){
-            this.set(decript(this.predef).split(','));
+            this.set(decrypt(this.predef).split(','));
             return;
         }
         this.difficulty = dif;
