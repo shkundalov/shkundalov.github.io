@@ -322,7 +322,7 @@ function guessNumber() {
     //info.insertBefore(step, info.children[1]);
     info.appendChild(step)
     info.scroll({
-        top: info.scrollHeight //0,
+        top: info.scrollHeight, //0,
         left: 0,
         behavior: 'smooth'
     });
