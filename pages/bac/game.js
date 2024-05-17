@@ -242,6 +242,9 @@ const Trans = {
         'duplicate': 'Kopija',
         'wrongPos': 'Neteisinga pozicija',
         'correct': 'Teisinga',
+        'bul':'Buliai',
+        'cow':'Karvės',
+        'cow':'',
         'rulesB': `Žaidimo tikslas - atspėti skaičių. Jaučiai reiškia teisingus skaitmenis, kurie yra teisingose pozicijose, o karvės - teisingi skaitmenys, kurie yra neteisingose pozicijose.
 Norėdami pradėti žaidimą, nurodykite skaitmenų skaičių, kurį norite atspėti, ir paspauskite "Pradėti".
 
@@ -264,6 +267,8 @@ Skaičius galima nurodyti pele arba klaviatūra (skaitmenys, rodyklės ir Enter)
         'easy': 'Easy',
         'medium': 'Medium',
         'hard': 'Hard',
+        'bul':'Bul',
+        'cow':'Cow',
         'rulesB': `Game requires you to guess the number.
 Bulls represents correct digits which stays in the correct position, and cows are correct digits which stay in wrong position.
 
@@ -296,7 +301,7 @@ function action(event, button) {
 function startGame() {
     document.querySelector('#bc_board .right').classList.remove('rules');
     head.innerText = LG.selectDigit;
-    info.innerHTML = `<div><span><a>${LG.moves}</a><a>${LG.number}</a></span><span><a>Buliai</a><a>Karvės</a></span></div>`;
+    info.innerHTML = `<div><span><a>${LG.moves}</a><a>${LG.number}</a></span><span><a LG='bul'></a><a LG='cow'></a></span></div>`;
     var number = setNumber.number;
     setNumber.remove();
     setNumber = null;
