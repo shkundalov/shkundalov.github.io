@@ -312,7 +312,7 @@ function startGame() {
     keyLog(false);
     document.getElementById('seq').innerHTML='1234';
     console.log(task.secret);
-    document.querySelect('.sequence').style.display = 'none';
+    document.querySelector('.sequence').style.display = 'none';
 }
 function guessNumber() {
     var answer = digits.calculate();
