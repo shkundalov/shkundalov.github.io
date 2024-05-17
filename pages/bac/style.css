@@ -231,12 +231,18 @@ html,body{
   bottom: 5px;
   right: 5px;
   position: fixed;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.sequence>a{
+    font-size: 14px;
 }
 .sequence>input{
   box-shadow: 0px 0px 5px #a4a4a4;
   border-radius: 7px;
   margin-left: 12px;
-  margin-top: 10px;
+  font-size: 14px;
 }
 #seq{
   position: fixed;
