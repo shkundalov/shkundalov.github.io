@@ -317,7 +317,7 @@ function startGame() {
     predef = predef?decrypt(predef):false;
     task = new BaC(digits,predef); task.generate(number, dif);
     keyLog(false);
-    document.getElementById('seq').innerHTML=encrypt(task.secret);
+    document.getElementById('seq').innerHTML=encrypt(task.secret.join(','));
     document.querySelector('#seq').removeAttribute('style');
     console.log(task.secret);
     document.querySelector('.sequence').style.display = 'none';
