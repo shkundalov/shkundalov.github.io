@@ -182,6 +182,7 @@
   .right>.content>div a{
     margin-right: 8%;
     color: inherit;
+    display: flex;
   }
   .right>.content>div a>span{
       width: 20px;
