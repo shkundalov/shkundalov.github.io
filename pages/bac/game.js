@@ -329,7 +329,7 @@ function guessNumber() {
     if (answer.join(',') === task.secret.join(',')) {
         button.innerText = LG.restart;
         digits.solved();
-        info.children[1].style = 'background: #628867;color: white;';
+        info.children[info.children.length-1].style = 'background: #628867;color: white;';
         head.innerText = LG.congrats;
         boom();
     }
