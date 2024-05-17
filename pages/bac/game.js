@@ -357,6 +357,7 @@ function restartGame() {
     document.querySelector('.sequence').removeAttribute('style');
     document.querySelector('#seq').style.display='none';
     document.getElementById('seq').innerHTML='';
+    document.querySelector('.sequence>input').value='';
 }
 keyLog(true);
 function keyLog(init = false) {
