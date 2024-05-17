@@ -244,7 +244,6 @@ const Trans = {
         'correct': 'Teisinga',
         'bul':'Buliai',
         'cow':'Karvės',
-        'cow':'',
         'rulesB': `Žaidimo tikslas - atspėti skaičių. Jaučiai reiškia teisingus skaitmenis, kurie yra teisingose pozicijose, o karvės - teisingi skaitmenys, kurie yra neteisingose pozicijose.
 Norėdami pradėti žaidimą, nurodykite skaitmenų skaičių, kurį norite atspėti, ir paspauskite "Pradėti".
 
@@ -320,9 +319,10 @@ function guessNumber() {
     else { message.innerText = '' }
     var step = document.createElement('div');
     step.innerHTML = `<span><a>${++data.steps}:</a><a>${answer.join(',')}</a></span><span><a>${result.cor}</a><a>${result.inc}</a></span>`;
-    info.insertBefore(step, info.children[1]);
+    //info.insertBefore(step, info.children[1]);
+    info.appendChild(step)
     info.scroll({
-        top: 0,
+        top: info.scrollHeight //0,
         left: 0,
         behavior: 'smooth'
     });
