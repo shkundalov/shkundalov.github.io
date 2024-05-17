@@ -1,3 +1,6 @@
+html,body{
+    height: 100%;
+}
 #site-content{
     width: 100% !important;
     margin: 0 !important;
