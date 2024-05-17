@@ -301,7 +301,7 @@ function action(event, button) {
 function startGame() {
     document.querySelector('#bc_board .right').classList.remove('rules');
     head.innerText = LG.selectDigit;
-    info.innerHTML = `<div><span><a>${LG.moves}</a><a>${LG.number}</a></span><span><a LG='bul'></a><a LG='cow'></a></span></div>`;
+    info.innerHTML = `<div><span><a>${LG.moves}</a><a>${LG.number}</a></span><span><a>${LG.bul}</a><a>${LG.cow}</a></span></div>`;
     var number = setNumber.number;
     setNumber.remove();
     setNumber = null;
