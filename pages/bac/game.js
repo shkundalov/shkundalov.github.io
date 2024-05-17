@@ -318,7 +318,7 @@ function guessNumber() {
     if (result.issue) { message.innerText = result.issue; return; }
     else { message.innerText = '' }
     var step = document.createElement('div');
-    step.innerHTML = `<span><a>${++data.steps}:</a><a>${answer.join(',')}</a></span><span><a>${result.cor}</a><a>${result.inc}</a></span>`;
+    step.innerHTML = `<span><a>${++data.steps}:</a><a><span>${answer.join('</span><span>')}</span></a></span><span><a>${result.cor}</a><a>${result.inc}</a></span>`;
     //info.insertBefore(step, info.children[1]);
     info.appendChild(step)
     info.scroll({
