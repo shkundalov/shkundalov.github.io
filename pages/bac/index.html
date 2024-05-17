@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <title>Buliai ir karvės &#8211; matemaciukas.vilniustech.lt</title>
+    <meta name='robots' content='max-image-preview:large' />
+    <link rel='stylesheet' href='style.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.3/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <div id="bc_board" class="grid grid-cols-5">
+        <div class="left flex items-center justify-center flex-col col-span-4">
+            <div LG="specifyNumber" id="bc_header"></div>
+            <div id="bc_container"
+                class="relative font-mono font-extrabold text-9xl grid text-right text-white shadow-2xl gap-x-px border-8 border-yellow-100 rounded grid-cols-1">
+            </div>
+            <div id="bc_foot">
+                <div class="message"></div>
+                <button class="bg-blur-5" LG="start"></button>
+            </div>
+            <div style="display: none" class="help">
+                <div><span class="increment"></span><a LG="duplicate"></a></div>
+                <div><span class="increment"></span><a LG="wrongPos"></a></div>
+                <div><span class="increment"></span><a LG="correct"></a></div>
+            </div>
+        </div>
+        <div class='flex flex-col right rules col-span-1 bg-blur-5'>
+            <div class="head">
+                <span><a LG="rulesH"></a><a LG="moves"></a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                        <path fill="#7cb342" d="M24 3A21 21 0 1 0 24 45A21 21 0 1 0 24 3Z" />
+                        <path fill="#dcedc8"
+                            d="M24,36.1c-6.6,0-12-5.4-12-12c0-3.6,1.6-7,4.4-9.3l2.5,3.1c-1.8,1.5-2.9,3.8-2.9,6.2c0,4.4,3.6,8,8,8 s8-3.6,8-8c0-2.1-0.8-4-2.2-5.5l2.9-2.7C34.8,18,36,21,36,24.1C36,30.7,30.6,36.1,24,36.1z" />
+                        <path fill="#dcedc8" d="M12 13L21 13 21 22z" />
+                    </svg></span>
+                <select id="difficulty">
+                    <option disabled LG="selDific"></option>
+                    <option value='0' LG="easy"></option>
+                    <option value='1' LG="medium" selected></option>
+                    <option value='2' LG="hard"></option>
+                </select>
+            </div>
+            <div id="bg_steps" class="content"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="game.js"></script>
+</body>
+
+</html>
