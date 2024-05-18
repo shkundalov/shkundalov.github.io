@@ -228,7 +228,7 @@ class Digits {
 }
 
 /* File 3 */
-const LAN = 'EN';
+const LAN = 'LT';
 const Trans = {
     LT: {
         'specifyNumber': 'Nurodykite skaitmenų skaičių',
