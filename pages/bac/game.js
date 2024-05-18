@@ -19,11 +19,11 @@ class BaC {
         this.length = secret.length;
     }
     generate(number, dif = '1') {
+        this.difficulty = dif;
         if(this.predef){
             this.set(this.predef);
             return;
         }
-        this.difficulty = dif;
         var row = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]][Number(dif)]
         function gn(int = 0) {
             var ran = Math.floor(int + Math.random() * (row.length - 1));
