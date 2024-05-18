@@ -228,9 +228,9 @@ html,body{
   }
 .sequence{
   font-size: 14px;
-  bottom: 5px;
+  bottom: 3px;
   right: 5px;
-  position: fixed;
+  position: absolute;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -243,9 +243,12 @@ html,body{
   border-radius: 7px;
   margin-left: 12px;
   font-size: 14px;
+  padding-left: 7px;
+  padding-right: 7px;
 }
 #seq{
-  position: fixed;
-  bottom: 5px;
+  position: absolute;
+  bottom: 3px;
   right: 5px;
+  font-size: 14px;
 }
