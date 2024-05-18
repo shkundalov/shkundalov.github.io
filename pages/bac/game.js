@@ -321,6 +321,7 @@ function startGame() {
     document.querySelector('#seq').removeAttribute('style');
     console.log(task.secret);
     document.querySelector('.sequence').style.display = 'none';
+    document.querySelector('.sequence>input').innerHTML = '';
 }
 function guessNumber() {
     var answer = digits.calculate();
