@@ -228,7 +228,7 @@ class Digits {
 }
 
 /* File 3 */
-const LAN = 'EN';
+const LAN = 'LT';
 const Trans = {
     LT: {
         'specifyNumber': 'Nurodykite skaitmenų skaičių',
@@ -312,14 +312,15 @@ function startGame() {
     var number = setNumber.number;
     setNumber.remove();
     setNumber = null;
+    var predef = document.querySelector('.sequence>input').value;
+    var cPredef = predef;
+    predef = predef?crypt(predef,true):false;
     var dif = document.querySelector('#difficulty').value;
     document.querySelector('#bc_board>.left>.help').style.display = dif == '0' ? 'unset' : 'none';
-    digits = new Digits(number, dif);
-    var predef = document.querySelector('.sequence>input').value;
-    predef = predef?decrypt(predef).split(','):false;
+    digits = new Digits(predef?predef.length:number, dif);
     task = new BaC(digits,predef); task.generate(number, dif);
     keyLog(false);
-    document.getElementById('seq').innerHTML=LG.gameCode+': '+encrypt(task.secret.join(','));
+    document.getElementById('seq').innerHTML=LG.gameCode+': '+(predef?cPredef:crypt(task.secret.join(',')));
     document.querySelector('#seq').removeAttribute('style');
     console.log(task.secret);
     document.querySelector('.sequence').style.display = 'none';
@@ -420,18 +421,36 @@ function translateHTML() {
         el.innerText = text;
     })
 }
-function encrypt(text, key="Passphrase"){
-    return [...text].map((x, i) => 
-    (x.codePointAt() ^ key.charCodeAt(i % key.length) % 255)
-     .toString(16)
-     .padStart(2,"0")
-   ).join('')
-}
-function decrypt(text, key="Passphrase"){
-    return String.fromCharCode(...text.match(/.{1,2}/g)
-     .map((e,i) => 
-       parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255)
-     )
+function crypt(text, dec) {
+    var alpha = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz';
+    var secret = '';
+    var key = dec ? alpha.indexOf(text[0]) : Math.floor(Math.random() * (35 - 2 + 1) + 2);
+    if([3,6,9,12,15,17,18,21,24,27,30,33,34].indexOf(key)>-1){return crypt(text, dec)}
+    (function shafl() {
+        var al = alpha.length;
+        var i = key;
+        while (secret.length < al) {
+            secret += alpha[i];
+            i += key;
+            if (i >= al) { i = i - al+1;}
+        }
+    })()
+    if (!dec) {
+        var ans = '';
+        text=text.split(',');
+        text.forEach((el) => {
+            ans += secret[Number(el) + key];
+        })
+        return alpha[key] + ans;
+    }
+    else{
+        var ans = [];
+        text = text.slice(1).split('');
+        text.forEach((el) => {
+            ans.push(String(secret.indexOf(el)-key));
+        })
+        return ans;
+    }
 }
 
 /* File 4 */
