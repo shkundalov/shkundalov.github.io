@@ -465,7 +465,7 @@ function translateHTML(languages,select) {
     lng_input.addEventListener('change',changeLAN);
     function changeLAN(){
         storage.lan = this.value;
-        localStorage.setItem('bac',storage);
+        localStorage.setItem('bac',JSON.stringify(storage));
         window.location.reload();
     }
     var doms = [...document.querySelectorAll('*[LG]')];
