@@ -258,4 +258,13 @@ html,body{
   right: 10px;
   background: #ececec;
   border-radius: 0px 0px 20px 20px;
+  padding: 9px;
+  padding-top: 5px;
+}
+.language>svg{
+  width: 28px;
+  height: 28px;
+  display: inline;
+  margin-left: 2px;
+  margin-right: 3px;
 }
