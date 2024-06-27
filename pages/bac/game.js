@@ -228,9 +228,15 @@ class Digits {
 }
 
 /* File 3 */
-const LAN = 'EN';
+var storage = localStorage.getItem('bac');
+if(storage){
+    storage = JSON.parse(storage);
+}
+else{storage = {lan = 'EN'}}
+const LAN = storage.lan;
 const Trans = {
     LT: {
+        'language':'Litovskio',
         'specifyNumber': 'Nurodykite skaitmenų skaičių',
         'start': 'Pradėti',
         'rulesH': 'Taisyklės',
@@ -257,6 +263,7 @@ Skaičius galima nurodyti pele arba klaviatūra (skaitmenys, rodyklės ir Enter)
 `
     },
     EN: {
+        'language':'English',
         'specifyNumber': 'Specify the number of digits',
         'duplicate': 'Duplicate',
         'guess': 'Guess',
@@ -281,10 +288,37 @@ Bulls represents correct digits which stays in the correct position, and cows ar
 
 To begin game specify the number of digits you would like to guess and pres "Start"
 Numbers can be specified by Mouse or Keyboard (digits, arrows and Enter)`
+    },
+    RU: {
+        'language':'Русский',
+        'specifyNumber': 'Введите колличество цифр',
+        'duplicate': 'Повторение',
+        'guess': 'Попробовать',
+        'wrongPos': 'Неправильная позиция',
+        'correct': 'Правильно',
+        'start': 'Начать',
+        'rulesH': 'Правила',
+        'restart': 'Заново',
+        'congrats': 'Поздравляем!',
+        'moves': 'Шаги',
+        'selDific': 'Сложность',
+        'selectDigit': 'Выбирите цифру',
+        'easy': 'Просто',
+        'medium': 'Средне',
+        'hard': 'Сложно',
+        'bul':'Бык',
+        'cow':'Корова',
+        'number':'Число',
+        'gameCode':'Код игры',
+        'rulesB': `В игре необходимо угадать число.
+Быки обозначают правильную цифру, которое стоит в правильной позиции, а коровы отображают правильную цифру которая стоит в неправильной позиции.
+
+Что бы начать игру выбирите желаемое колличество цифр и нажмите "Начать".
+Цифры могут быть выставлены мышкой и клавиатурой (стрелки, пробел и Enter)`
     }
 }
 var LG = Trans[LAN];
-translateHTML();
+translateHTML(Trans,LAN);
 /* PROCESS */
 var task = null;
 var setNumber = new Digit(4).block(0).setMax(10);
@@ -414,7 +448,16 @@ function keyLog(init = false) {
         move(true);
     }
 }
-function translateHTML() {
+function translateHTML(languages,select) {
+    var lng = Object.keys(languages);
+    var lng_input = document.getElementById('lan_selector');
+    lng.forEach((l)=>{
+        var opt = document.createElement('option');
+        opt.innerText = languages[l].language;
+        opt.value = l;
+        if(l == select){opt.selected=true;lng_input.insertBefore(opt,lng_input.children[0])}
+        else{lng_input.appendChild(opt);}
+    });
     var doms = [...document.querySelectorAll('*[LG]')];
     doms.forEach((el) => {
         var text = LG[el.getAttribute('LG')] || 'UNKNOWN';
