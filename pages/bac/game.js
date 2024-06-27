@@ -232,7 +232,7 @@ var storage = localStorage.getItem('bac');
 if(storage){
     storage = JSON.parse(storage);
 }
-else{storage = {lan = 'EN'}}
+else{storage = {lan: 'EN'}}
 const LAN = storage.lan;
 const Trans = {
     LT: {
@@ -462,6 +462,12 @@ function translateHTML(languages,select) {
         else{lng_input.appendChild(opt);}
         console.log(4);
     });
+    lng_input.addEventListener('change',changeLAN);
+    function changeLAN(){
+        storage.lan = this.value;
+        localStorage.setItem('bac',storage);
+        window.location.reload();
+    }
     var doms = [...document.querySelectorAll('*[LG]')];
     doms.forEach((el) => {
         var text = LG[el.getAttribute('LG')] || 'UNKNOWN';
