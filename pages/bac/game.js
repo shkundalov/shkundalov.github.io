@@ -449,14 +449,18 @@ function keyLog(init = false) {
     }
 }
 function translateHTML(languages,select) {
+    console.log(1);
     var lng = Object.keys(languages);
     var lng_input = document.getElementById('lan_selector');
     lng.forEach((l)=>{
+        console.log(2);
         var opt = document.createElement('option');
         opt.innerText = languages[l].language;
         opt.value = l;
+        console.log(3);
         if(l == select){opt.selected=true;lng_input.insertBefore(opt,lng_input.children[0])}
         else{lng_input.appendChild(opt);}
+        console.log(4);
     });
     var doms = [...document.querySelectorAll('*[LG]')];
     doms.forEach((el) => {
