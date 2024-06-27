@@ -252,7 +252,7 @@ html,body{
   right: 5px;
   font-size: 14px;
 }
-#language{
+.language{
   position: fixed;
   top: 0;
   right: 10px;
